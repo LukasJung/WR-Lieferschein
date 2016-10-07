@@ -24,8 +24,7 @@ namespace Waage_Scan
         {
 
         }
-    }
-}
+
 
 
 public class PortChat
@@ -209,3 +208,8 @@ public class PortChat
         return (Handshake)Enum.Parse(typeof(Handshake), handshake, true);
     }
 }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
