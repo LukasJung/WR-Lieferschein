@@ -49,6 +49,15 @@ namespace Waage_Scan
             textBox1.Size = new System.Drawing.Size(345, 38);
             textBox1.TabIndex = 0;
             // 
+            // textBox2
+            // 
+            textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            textBox2.Location = new System.Drawing.Point(42, 356);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new System.Drawing.Size(346, 38);
+            textBox2.TabIndex = 4;
+            textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -78,22 +87,10 @@ namespace Waage_Scan
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.label2.Location = new System.Drawing.Point(38, 329);
+            this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 24);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Gewicht in kg";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            textBox2.Location = new System.Drawing.Point(42, 356);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new System.Drawing.Size(346, 38);
-            textBox2.TabIndex = 4;
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 8;
             // 
             // button1
             // 

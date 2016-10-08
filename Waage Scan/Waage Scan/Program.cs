@@ -19,4 +19,6 @@ namespace Waage_Scan
             Application.Run(new Form1());
         }
     }
+
+
 }
