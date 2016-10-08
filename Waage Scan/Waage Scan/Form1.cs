@@ -31,6 +31,7 @@ namespace Waage_Scan
         {
             static bool _continue;
             static SerialPort _serialPort;
+            static decimal gewicht;
 
             public static void test()
             {
@@ -90,7 +91,7 @@ namespace Waage_Scan
                     }
                 }
             }
-            static int stripandcheck(string tomodify)
+            static Decimal stripandcheck(string tomodify)
             {
                 tomodify.Replace(" ", "");
                 tomodify.Replace("+", "");
@@ -101,21 +102,33 @@ namespace Waage_Scan
                 {
                    
                     tomodify.Substring(0, tomodify.Length - 3);
+                    gewicht = System.Convert.ToDecimal(tomodify);
+                    gewicht = gewicht * 1;
                         
                 }
                 else if (tomodify.Contains("lb"))
                 {
                     tomodify.Substring(0, tomodify.Length - 2);
+                    gewicht = System.Convert.ToDecimal(tomodify);
+                    decimal umrechner = 0.4535m;
+                    gewicht = gewicht * umrechner;
                 }
                 else if (tomodify.Contains("N"))
                 {
                     tomodify.Substring(0, tomodify.Length - 1);
+                    gewicht = System.Convert.ToDecimal(tomodify);
+                    decimal umrechner = 9.81m;
+                    gewicht = gewicht / umrechner;
+
                 }
                 else if (tomodify.Contains("g"))
                 {
                     tomodify.Substring(0, tomodify.Length - 1);
+                    gewicht = System.Convert.ToDecimal(tomodify);
+                    gewicht = gewicht * 1000;
+
                 }
-                return 1;
+                return gewicht;
             }
 
         }
