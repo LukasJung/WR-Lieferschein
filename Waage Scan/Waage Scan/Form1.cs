@@ -92,7 +92,29 @@ namespace Waage_Scan
             }
             static int stripandcheck(string tomodify)
             {
+                tomodify.Replace(" ", "");
+                tomodify.Replace("+", "");
+                tomodify.Replace("-", "");
 
+
+                if (tomodify.Contains("kg"))
+                {
+                   
+                    tomodify.Substring(0, tomodify.Length - 3);
+                        
+                }
+                else if (tomodify.Contains("lb"))
+                {
+                    tomodify.Substring(0, tomodify.Length - 2);
+                }
+                else if (tomodify.Contains("N"))
+                {
+                    tomodify.Substring(0, tomodify.Length - 1);
+                }
+                else if (tomodify.Contains("g"))
+                {
+                    tomodify.Substring(0, tomodify.Length - 1);
+                }
                 return 1;
             }
 
@@ -100,7 +122,7 @@ namespace Waage_Scan
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }
