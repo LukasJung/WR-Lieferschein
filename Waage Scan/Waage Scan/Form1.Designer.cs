@@ -30,6 +30,7 @@ namespace Waage_Scan
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TextBox textBox1;
             System.Windows.Forms.TextBox textBox2;
             this.label1 = new System.Windows.Forms.Label();
@@ -37,8 +38,10 @@ namespace Waage_Scan
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             textBox1 = new System.Windows.Forms.TextBox();
             textBox2 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -112,6 +115,10 @@ namespace Waage_Scan
             this.button2.Text = "Drucken";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // form1BindingSource
+            // 
+            this.form1BindingSource.DataSource = typeof(Waage_Scan.Form1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +134,7 @@ namespace Waage_Scan
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +152,7 @@ namespace Waage_Scan
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource form1BindingSource;
     }
 }
 
