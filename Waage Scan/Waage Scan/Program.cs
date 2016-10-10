@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Waage_Scan
@@ -19,6 +16,4 @@ namespace Waage_Scan
             Application.Run(new Form1());
         }
     }
-
-
 }
