@@ -75,7 +75,7 @@ namespace Waage_Scan
             "5. Label drucken"});
             this.listBox1.Location = new System.Drawing.Point(42, 47);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(659, 148);
+            this.listBox1.Size = new System.Drawing.Size(346, 148);
             this.listBox1.TabIndex = 3;
             // 
             // button2
@@ -84,7 +84,7 @@ namespace Waage_Scan
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.button2.Location = new System.Drawing.Point(41, 384);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(660, 151);
+            this.button2.Size = new System.Drawing.Size(347, 151);
             this.button2.TabIndex = 7;
             this.button2.Text = "Drucken";
             this.button2.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@ namespace Waage_Scan
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(41, 324);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(345, 38);
+            this.textBox2.Size = new System.Drawing.Size(347, 38);
             this.textBox2.TabIndex = 8;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -113,7 +113,7 @@ namespace Waage_Scan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 559);
+            this.ClientSize = new System.Drawing.Size(432, 559);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
