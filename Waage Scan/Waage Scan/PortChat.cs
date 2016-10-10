@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Windows.Forms;
 using Waage_Scan.Annotations;
+
 
 namespace Waage_Scan
 {
@@ -16,6 +16,7 @@ namespace Waage_Scan
         private SerialPort _serialPort;
         private decimal _gewicht;
         private string _toModify;
+        private string _windowname;
         #endregion
 
         #region Fields
@@ -36,7 +37,11 @@ namespace Waage_Scan
             get { return _serialPort; }
             set { _serialPort = value; }
         }
-
+        public string WindowName
+        {
+            get { return _windowname; }
+            set { _windowname = value; }
+        }
         public decimal Gewicht
         {
             get { return _gewicht; }
@@ -81,6 +86,10 @@ namespace Waage_Scan
             _serialPort.Close();
         }
 
+        public void sendtoexternal(string text)
+        {
+           
+        }
         private void Read()
         {
             try
@@ -97,9 +106,6 @@ namespace Waage_Scan
 
         public decimal StripAndCheck()
         {
-            //toModify.Replace(" ", "");
-            //tomodify.Replace("+", "");
-            //tomodify.Replace("-", "");
             ToModify = ToModify.Replace(" ", "").Replace("+", "").Replace("-", "").Replace("\r", "").Replace(".", ",");
 
             if (ToModify.Contains("kg"))

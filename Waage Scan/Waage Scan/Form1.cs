@@ -10,12 +10,13 @@ namespace Waage_Scan
     public partial class Form1 : Form
     {
         private PortChat _mySerialPort;
+        private string sendme;
 
         public Form1()
         {
             InitializeComponent();
             _mySerialPort = new PortChat();
-
+            
         }
 
         private void gewichtfeld_click(object sender, EventArgs e)
@@ -25,6 +26,7 @@ namespace Waage_Scan
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             _mySerialPort.Continue = true;
             _mySerialPort.StartRead();
         }
@@ -43,10 +45,22 @@ namespace Waage_Scan
                 case (Keys.Enter):
                     _mySerialPort.StartRead();
                     textBox2.Text = _mySerialPort.Gewicht.ToString();
+                    sendme = _mySerialPort.Gewicht.ToString();
+                    _mySerialPort.sendtoexternal(sendme);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

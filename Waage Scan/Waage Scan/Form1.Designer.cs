@@ -49,6 +49,7 @@ namespace Waage_Scan
             textBox1.Name = "textBox1";
             textBox1.Size = new System.Drawing.Size(345, 38);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label1
@@ -96,6 +97,7 @@ namespace Waage_Scan
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(345, 38);
             this.textBox2.TabIndex = 8;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
