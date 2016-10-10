@@ -26,9 +26,8 @@ namespace Waage_Scan
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox2.Text = _mySerialPort.Gewicht.ToString();
-            sendme = _mySerialPort.Gewicht.ToString();
-            _mySerialPort.sendtoexternal(sendme);
+            sendme = textBox2.Text;
+            _mySerialPort.sendtoexternalandprint(textBox2.Text);
             _mySerialPort.Continue = true;
             _mySerialPort.StartRead();
         }
@@ -46,7 +45,9 @@ namespace Waage_Scan
             {
                 case (Keys.Enter):
                     _mySerialPort.StartRead();
-                    
+                    string LsNR = textBox1.Text;
+                    _mySerialPort.sendtoexternal(LsNR);
+                    textBox2.Text = _mySerialPort.Gewicht.ToString();
                     break;
                 default:
                     break;

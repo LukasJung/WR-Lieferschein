@@ -31,26 +31,25 @@ namespace Waage_Scan
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TextBox textBox1;
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            textBox1.Location = new System.Drawing.Point(43, 239);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(345, 38);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.textBox1.Location = new System.Drawing.Point(43, 239);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(345, 38);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label1
             // 
@@ -119,7 +118,7 @@ namespace Waage_Scan
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(textBox1);
+            this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).EndInit();
@@ -138,6 +137,7 @@ namespace Waage_Scan
         private System.Windows.Forms.BindingSource form1BindingSource;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

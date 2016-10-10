@@ -17,6 +17,7 @@ namespace Waage_Scan
         private decimal _gewicht;
         private string _toModify;
         private string _windowname;
+        public string _easylog;
         #endregion
 
         #region Fields
@@ -24,6 +25,12 @@ namespace Waage_Scan
         {
             get { return _toModify; }
             set { _toModify = value; }
+        }
+
+        public string easylog
+        {
+            get { return _easylog; }
+            set { _easylog = value; }
         }
 
         public bool Continue
@@ -88,8 +95,19 @@ namespace Waage_Scan
 
         public void sendtoexternal(string text)
         {
-           
+            //todo switch to other window
+            //SendKeys.Send(text);
+            //SendKeys.Send("{ TAB}");
+            //switch back
         }
+        public void sendtoexternalandprint(string text)
+        {
+            //todo switch to other window
+            //SendKeys.Send(text);
+            //SendKeys.Send("{ TAB}");
+            //switch back
+        }
+
         private void Read()
         {
             try
