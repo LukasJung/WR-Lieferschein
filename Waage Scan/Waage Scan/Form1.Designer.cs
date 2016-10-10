@@ -117,7 +117,7 @@ namespace Waage_Scan
             // 
             // form1BindingSource
             // 
-            this.form1BindingSource.DataSource = typeof(Waage_Scan.Form1);
+            //this.form1BindingSource.DataSource = typeof(Waage_Scan.Form1);
             // 
             // Form1
             // 
