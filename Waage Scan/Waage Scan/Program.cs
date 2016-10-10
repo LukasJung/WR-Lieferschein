@@ -15,5 +15,7 @@ namespace Waage_Scan
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+    
     }
 }

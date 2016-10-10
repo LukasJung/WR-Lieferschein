@@ -1,18 +1,29 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Windows.Forms;
 using Waage_Scan.Annotations;
 
 namespace Waage_Scan
 {
-    public class PortChat :INotifyPropertyChanged
+    public class PortChat : INotifyPropertyChanged
     {
+        #region members
         private bool _continue;
         private SerialPort _serialPort;
         private decimal _gewicht;
+        private string _toModify;
+        #endregion
 
+        #region Fields
+        public string ToModify
+        {
+            get { return _toModify; }
+            set { _toModify = value; }
+        }
 
         public bool Continue
         {
@@ -35,13 +46,11 @@ namespace Waage_Scan
                 OnPropertyChanged(nameof(Gewicht));
             }
         }
+        #endregion
 
 
-        public void Test()
+        public PortChat()
         {
-            var stringComparer = StringComparer.OrdinalIgnoreCase;
-            var readThread = new Thread(Read);
-
             // Create a new SerialPort object with default settings.
             _serialPort = new SerialPort
             {
@@ -54,80 +63,68 @@ namespace Waage_Scan
                 ReadTimeout = 500000,
                 WriteTimeout = 500000
             };
+        }
 
-            // Allow the user to set the appropriate properties.
-
-            // Set the read/write timeouts
-
+        public void StartRead()
+        {
             SerialPort.Open();
             _continue = true;
-            readThread.Start();
-            Thread.Sleep(1000);
-            while (_continue)
-            {
-                if (_serialPort.IsOpen)
-                {
-                    Read();
-                }
-                else
-                {
-                    Console.WriteLine("NOOOOOOOOO!");
-                }
-            }
 
-            readThread.Join();
+            if (_serialPort.IsOpen)
+            {
+                Read();
+            }
+            else
+            {
+                Console.WriteLine("NOOOOOOOOO!");
+            }
             _serialPort.Close();
         }
 
-        public void Read()
+        private void Read()
         {
-            while (_continue)
+            try
             {
-                try
-                {
-                    string tomodify = _serialPort.ReadLine();
-                    //var test = _serialPort.ReadByte();
-                    Console.WriteLine(tomodify);
-                    Thread.Sleep(1000);
-                }
-
-                catch (TimeoutException ex)
-                {
-                    throw ex;
-                }
+                ToModify = _serialPort.ReadLine().ToString();
             }
+            catch (TimeoutException ex)
+            {
+                Debugger.Break();
+                MessageBox.Show(string.Format("Message:\n{0}\n\nInnerMessage:\n{1}", ex.Message, ex.InnerException));
+            }
+            StripAndCheck();
         }
-        public decimal StripAndCheck(string tomodify)
-        {
-            tomodify.Replace(" ", "");
-            tomodify.Replace("+", "");
-            tomodify.Replace("-", "");
 
-            if (tomodify.Contains("kg"))
+        public decimal StripAndCheck()
+        {
+            //toModify.Replace(" ", "");
+            //tomodify.Replace("+", "");
+            //tomodify.Replace("-", "");
+            ToModify = ToModify.Replace(" ", "").Replace("+", "").Replace("-", "").Replace("\r", "").Replace(".", ",");
+
+            if (ToModify.Contains("kg"))
             {
-                tomodify.Substring(0, tomodify.Length - 3);
-                Gewicht = System.Convert.ToDecimal(tomodify);
-                Gewicht = Gewicht * 1;
+                ToModify = ToModify.Substring(0, ToModify.Length - 3);
+                Gewicht = System.Convert.ToDecimal(ToModify);
             }
-            else if (tomodify.Contains("lb"))
+            else if (ToModify.Contains("lb"))
             {
-                tomodify.Substring(0, tomodify.Length - 2);
-                Gewicht = System.Convert.ToDecimal(tomodify);
+                ToModify = ToModify.Substring(0, ToModify.Length - 2);
+                Gewicht = System.Convert.ToDecimal(ToModify);
                 var umrechner = 0.4535m;
                 Gewicht = Gewicht * umrechner;
             }
-            else if (tomodify.Contains("N"))
+            else if (ToModify.Contains("N"))
             {
-                tomodify.Substring(0, tomodify.Length - 1);
-                Gewicht = System.Convert.ToDecimal(tomodify);
+                ToModify = ToModify.Substring(0, ToModify.Length - 1);
+                Gewicht = System.Convert.ToDecimal(ToModify);
                 var umrechner = 9.81m;
                 Gewicht = Gewicht / umrechner;
-
             }
-            else if (tomodify.Contains("g"))
+            else if (ToModify.Contains("g"))
             {
-                tomodify.Substring(0, tomodify.Length - 1);
-                Gewicht = System.Convert.ToDecimal(tomodify);
+                ToModify = ToModify.Substring(0, ToModify.Length - 1);
+                Gewicht = System.Convert.ToDecimal(ToModify);
                 Gewicht = Gewicht * 1000;
             }
             return Gewicht;
