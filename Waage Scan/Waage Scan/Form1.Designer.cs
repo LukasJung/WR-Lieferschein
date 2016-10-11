@@ -107,6 +107,7 @@ namespace Waage_Scan
             this.label3.Size = new System.Drawing.Size(131, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Gewicht in Kg:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form1
             // 

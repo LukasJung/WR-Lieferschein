@@ -27,7 +27,7 @@ namespace Waage_Scan
         private void button2_Click(object sender, EventArgs e)
         {
             sendme = textBox2.Text;
-            _mySerialPort.sendtoexternalandprint(textBox2.Text);
+            easylogconnection.sendtoexternalandprint(textBox2.Text);
             _mySerialPort.Continue = true;
             _mySerialPort.StartRead();
         }
@@ -46,7 +46,7 @@ namespace Waage_Scan
                 case (Keys.Enter):
                     _mySerialPort.StartRead();
                     string LsNR = textBox1.Text;
-                    _mySerialPort.sendtoexternal(LsNR);
+                    easylogconnection.sendtoexternal(LsNR);
                     textBox2.Text = _mySerialPort.Gewicht.ToString();
                     break;
                 default:
@@ -60,6 +60,11 @@ namespace Waage_Scan
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

@@ -93,21 +93,6 @@ namespace Waage_Scan
             _serialPort.Close();
         }
 
-        public void sendtoexternal(string text)
-        {
-            //todo switch to other window
-            //SendKeys.Send(text);
-            //SendKeys.Send("{ TAB}");
-            //switch back
-        }
-        public void sendtoexternalandprint(string text)
-        {
-            //todo switch to other window
-            //SendKeys.Send(text);
-            //SendKeys.Send("{ TAB}");
-            //switch back
-        }
-
         private void Read()
         {
             try
