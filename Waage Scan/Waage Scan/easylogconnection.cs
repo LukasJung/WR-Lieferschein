@@ -18,19 +18,24 @@ namespace Waage_Scan
         {
             //lieferschein
 
-            //todo switch to other window
+            //switch to other window
+            Interaction.AppActivate(ProgText);
+            //send keys and enter
             SendKeys.Send(text);
-            SendKeys.Send("{ TAB}");
-
+            SendKeys.Send("{ENTER}");
             //switch back
             Interaction.AppActivate("Gewicht eingeben");
+
 
         }
         public static void sendtoexternalandprint(string text)
         {
-            //gewicht
+            //switch to other window
             Interaction.AppActivate(ProgText);
+            //send keys and tab
             SendKeys.Send(text);
+            SendKeys.Send("{INS}");
+            SendKeys.Send("{INS}");
             SendKeys.Send("{INS}");
             Interaction.AppActivate("Gewicht eingeben");
         }
