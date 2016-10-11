@@ -28,6 +28,7 @@ namespace Waage_Scan
         {
             sendme = textBox2.Text;
             easylogconnection.sendtoexternalandprint(textBox2.Text);
+            textBox1.Focus();
             _mySerialPort.Continue = true;
             _mySerialPort.StartRead();
         }
