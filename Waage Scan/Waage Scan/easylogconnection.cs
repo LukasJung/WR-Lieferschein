@@ -19,7 +19,14 @@ namespace Waage_Scan
             //lieferschein
 
             //switch to other window
-            Interaction.AppActivate(ProgText);
+            try
+            {
+                Interaction.AppActivate(ProgText);
+            }
+            catch
+            {
+                MessageBox.Show("Fehler EasyLog nicht gefunden", "Waage", MessageBoxButtons.OK);
+            }
             //send keys and enter
             SendKeys.Send(text);
             SendKeys.Send("{ENTER}");
@@ -31,7 +38,14 @@ namespace Waage_Scan
         public static void sendtoexternalandprint(string text)
         {
             //switch to other window
-            Interaction.AppActivate(ProgText);
+            try
+            {
+                Interaction.AppActivate(ProgText);
+            }
+            catch
+            {
+                MessageBox.Show("Fehler EasyLog nicht gefunden", "Waage", MessageBoxButtons.OK);
+            }
             //send keys and tab
             SendKeys.Send(text);
             SendKeys.Send("{INS}");
