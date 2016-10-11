@@ -16,6 +16,21 @@ namespace Waage_Scan
         {
             InitializeComponent();
             _mySerialPort = new PortChat();
+
+            try
+            {
+                _mySerialPort.CheckConnection();
+            }
+            catch(System.IO.IOException ex)
+            {
+                Console.WriteLine("IOException");
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception");
+                Console.WriteLine(ex.Message);
+            }
             
         }
 
@@ -46,7 +61,7 @@ namespace Waage_Scan
             {
                 case (Keys.Enter):
                     _mySerialPort.StartRead();
-                    string LsNR = textBox1.Text;
+                    var LsNR = textBox1.Text;
                     easylogconnection.sendtoexternal(LsNR);
                     textBox2.Text = _mySerialPort.Gewicht.ToString();
                     break;

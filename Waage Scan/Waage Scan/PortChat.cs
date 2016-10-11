@@ -139,6 +139,12 @@ namespace Waage_Scan
             return Gewicht;
         }
 
+        public void CheckConnection()
+        {
+            //TODO:
+            _serialPort.Open();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

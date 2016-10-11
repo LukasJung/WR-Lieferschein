@@ -11,27 +11,24 @@ namespace Waage_Scan
     {
         private static string ProgText = "EasyLog 6.8 XL";
 
-
-
-
         public static void sendtoexternal(string text)
         {
-            //lieferschein
-
             //switch to other window
             try
             {
                 Interaction.AppActivate(ProgText);
             }
-            catch
+            catch (Exception message)
             {
+
                 MessageBox.Show("Fehler EasyLog nicht gefunden", "Waage", MessageBoxButtons.OK);
+                MessageBox.Show(message.Message, "Waage", MessageBoxButtons.OK);
             }
             //send keys and enter
             SendKeys.Send(text);
             SendKeys.Send("{ENTER}");
             //switch back
-            Interaction.AppActivate("Gewicht eingeben");
+            Interaction.AppActivate("Lieferschein");
 
 
         }
@@ -42,17 +39,19 @@ namespace Waage_Scan
             {
                 Interaction.AppActivate(ProgText);
             }
-            catch
+            catch (Exception message)
             {
                 MessageBox.Show("Fehler EasyLog nicht gefunden", "Waage", MessageBoxButtons.OK);
+                MessageBox.Show(message.Message, "Waage", MessageBoxButtons.OK);
             }
             //send keys and tab
             SendKeys.Send(text);
             SendKeys.Send("{INS}");
             SendKeys.Send("{INS}");
             SendKeys.Send("{INS}");
-            Interaction.AppActivate("Gewicht eingeben");
+            //switch back
+            Interaction.AppActivate("Lieferschein");
         }
     }
-   
+
 }
