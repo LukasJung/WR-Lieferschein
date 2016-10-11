@@ -26,11 +26,7 @@ namespace Waage_Scan
                 Console.WriteLine("IOException");
                 Console.WriteLine(ex.Message);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception");
-                Console.WriteLine(ex.Message);
-            }
+            
             
         }
 

@@ -79,6 +79,10 @@ namespace Waage_Scan
 
         public void StartRead()
         {
+            if (SerialPort.IsOpen)
+                {
+                SerialPort.Close();
+                }
             SerialPort.Open();
             _continue = true;
 
