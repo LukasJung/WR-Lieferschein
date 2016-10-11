@@ -9,7 +9,7 @@ using Waage_Scan.Annotations;
 
 namespace Waage_Scan
 {
-    public class PortChat : INotifyPropertyChanged
+    public class PortChat
     {
         #region members
         private bool _continue;
@@ -55,12 +55,11 @@ namespace Waage_Scan
             set
             {
                 _gewicht = value;
-                OnPropertyChanged(nameof(Gewicht));
             }
         }
         #endregion
 
-
+        #region ctor
         public PortChat()
         {
             // Create a new SerialPort object with default settings.
@@ -76,15 +75,25 @@ namespace Waage_Scan
                 WriteTimeout = 500000
             };
         }
+        #endregion
 
         public void StartRead()
         {
             if (SerialPort.IsOpen)
-                {
+            {
                 SerialPort.Close();
-                }
-            SerialPort.Open();
-            _continue = true;
+            }
+            try
+            {
+                SerialPort.Open();
+                _continue = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Application.Exit();
+            }
+            
 
             if (_serialPort.IsOpen)
             {
@@ -92,7 +101,7 @@ namespace Waage_Scan
             }
             else
             {
-                Console.WriteLine("NOOOOOOOOO!");
+               MessageBox.Show("NOOOOOOOOO!");
             }
             _serialPort.Close();
         }
@@ -145,16 +154,7 @@ namespace Waage_Scan
 
         public void CheckConnection()
         {
-            //TODO:
             _serialPort.Open();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

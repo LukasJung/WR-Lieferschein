@@ -45,12 +45,23 @@ namespace Waage_Scan
                 MessageBox.Show(message.Message, "Waage", MessageBoxButtons.OK);
             }
             //send keys and tab
+            SendKeys.Send("{Tab}");
             SendKeys.Send(text);
             SendKeys.Send("{INS}");
             SendKeys.Send("{INS}");
             SendKeys.Send("{INS}");
             //switch back
             Interaction.AppActivate("Lieferschein");
+            
+        }
+
+        internal static void clear()
+        {
+            SendKeys.Send("{BS}");
+            SendKeys.Send("{BS}");
+            SendKeys.Send("{BS}");
+            SendKeys.Send("{BS}");
+
         }
     }
 
