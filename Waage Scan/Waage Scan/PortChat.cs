@@ -79,29 +79,26 @@ namespace Waage_Scan
 
         public void StartRead()
         {
-            if (SerialPort.IsOpen)
-            {
-                SerialPort.Close();
-            }
-            try
-            {
-                SerialPort.Open();
-                _continue = true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                Application.Exit();
-            }
-            
-
             if (_serialPort.IsOpen)
             {
+                SerialPort.Close();
+                SerialPort.Open();
+                _continue = true;
                 Read();
             }
             else
             {
-               MessageBox.Show("NOOOOOOOOO!");
+                try
+                {
+                    SerialPort.Open();
+                    _continue = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Application.Exit();
+                }
+
             }
             _serialPort.Close();
         }
@@ -152,9 +149,5 @@ namespace Waage_Scan
             return Gewicht;
         }
 
-        public void CheckConnection()
-        {
-            _serialPort.Open();
-        }
     }
 }

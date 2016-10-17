@@ -19,7 +19,7 @@ namespace Waage_Scan
 
             try
             {
-                _mySerialPort.CheckConnection();
+                
             }
             catch(System.IO.IOException ex)
             {
